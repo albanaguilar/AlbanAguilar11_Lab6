@@ -1,13 +1,12 @@
-var st = ""
+var st, previousPageT ="", nextPageT ='';
+
 $("#submit").on( "click", function( event ) {
     $('#resultados').html("");
     event.preventDefault();
     st = $('#search').val()
     request(st, " ")
-    $("#resultados").append("<input type='button' value='previousPageT'/><input type='button' value='nextPageT'/>");
+    $("#resultados").append("<input type='button' id='prev' value='previousPageT'/><input type='button' id='next' value='nextPageT'/>");
 });
-
-
 
 function request(term, token){
   $.ajax({
@@ -59,11 +58,18 @@ function request(term, token){
      })
 }
 
+$("#resultados").on( 'click', 'li', function( event ){
+        event.preventDefault( );
 
-
-
-
-
+        if (event.target.value == 'previousPageT') {
+            $('#resultados').html("");
+        	request(st, previousPageT);
+        } 
+        else if (event.target.value == 'nextPageT') {
+            $('#resultados').html("");
+      		request(st, nextPageT);
+        }
+});
 
 
 
