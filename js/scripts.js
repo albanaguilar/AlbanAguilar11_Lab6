@@ -5,7 +5,8 @@ $("#submit").on( "click", function( event ) {
     event.preventDefault();
     st = $('#search').val()
     request(st, " ")
-    $("#resultados").append("<input type='button' id='prev' value='previousPageT'/><input type='button' id='next' value='nextPageT'/>");
+    	$("#resultados").append("<li><input type='button' id='prev' value='previousPageT'/><input type='button' id='next' value='nextPageT'/></li>");
+
 });
 
 function request(term, token){
@@ -63,10 +64,14 @@ $("#resultados").on( 'click', 'li', function( event ){
 
         if (event.target.value == 'previousPageT') {
             $('#resultados').html("");
+            	$("#resultados").append("<li><input type='button' id='prev' value='previousPageT'/><input type='button' id='next' value='nextPageT'/></li>");
+
         	request(st, previousPageT);
         } 
         else if (event.target.value == 'nextPageT') {
             $('#resultados').html("");
+            	$("#resultados").append("<li><input type='button' id='prev' value='previousPageT'/><input type='button' id='next' value='nextPageT'/></li>");
+
       		request(st, nextPageT);
         }
 });
