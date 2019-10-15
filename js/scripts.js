@@ -1,10 +1,13 @@
+var st = ""
 $("#submit").on( "click", function( event ) {
     $('#resultados').html("");
     event.preventDefault();
-    var st = $('#search').val()
+    st = $('#search').val()
     request(st, " ")
-    $("#resultados").append("<input type='button' value='prevPageToken'/><input type='button' value='nextPageToken'/>");
+    $("#resultados").append("<input type='button' value='previousPageT'/><input type='button' value='nextPageT'/>");
 });
+
+
 
 function request(term, token){
   $.ajax({
